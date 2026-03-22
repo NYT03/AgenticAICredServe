@@ -109,7 +109,7 @@ flowchart TD
     G --> H[Verification Engine]
 
     E --> I[State Database]
-    E --> J[Notification Service (SMS/Email/Voice)]
+    E --> J["Notification Service (SMS/Email/Voice)"]
 
     H --> K[Proof Logs + Audit Trail]
     I --> K
