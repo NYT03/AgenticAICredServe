@@ -58,7 +58,7 @@ This system consists of two AI agents:
 
 ## Production Architecture Flow
 
-````text
+```text
 User Upload / Trigger / Webhook
                 |
                 v
@@ -85,9 +85,9 @@ User Upload / Trigger / Webhook
           v
    Human Review Dashboard
 
-Notifications (SMS/Email/Voice) triggered by Collections Agent ```
+Notifications (SMS/Email/Voice) triggered by Collections Agent 
+```
 
----
 
 ## Option 2 — Mermaid Diagram (Best for GitHub)
 
