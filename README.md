@@ -56,36 +56,36 @@ This system consists of two AI agents:
 - **Onboarding Agent** – Extracts structured data from financial documents using a Vision-Language Model (VLM/LLM).
 - **Collections Agent** – A deterministic state machine that manages borrower communication and escalation workflows.
 
-### Production Architecture Flow
+## Production Architecture Flow
 
+```text
 User Upload / Trigger / Webhook
-│
-▼
-API Gateway (FastAPI)
-│
-▼
-Orchestration Layer (LangGraph)
-│ │
-│ │
-▼ ▼
-Onboarding Agent Collections Agent
-│ │
-▼ ▼
-Document Store State Database
-│ │
-▼ ▼
-LLM Service Notification Service (SMS/Email/Voice)
-│
-▼
-Verification Engine
-│
-▼
-Proof Logs + Audit Trail
-│
-▼
-Human Review Dashboard
+                |
+                v
+        API Gateway (FastAPI)
+                |
+                v
+    Orchestration Layer (LangGraph)
+           /                 \
+          v                   v
+ Onboarding Agent     Collections Agent
+          |                   |
+          v                   v
+   Document Store       State Database
+          |
+          v
+      LLM Service
+          |
+          v
+   Verification Engine
+          |
+          v
+   Proof Logs + Audit Trail
+          |
+          v
+   Human Review Dashboard
 
----
+Notifications (SMS/Email/Voice) triggered by Collections Agent
 
 ## 2. Proof Logs Strategy (Auditability)
 
