@@ -85,41 +85,37 @@ User Upload / Trigger / Webhook
           v
    Human Review Dashboard
 
-Notifications (SMS/Email/Voice) triggered by Collections Agent
----
-## 2. Proof Logs Strategy (Auditability)
-
-In financial systems, every AI decision must be traceable and auditable. The system will automatically generate **Proof Logs** for every action taken by the AI agents.
-
-### Each Proof Log Entry Stores:
-
-| Field               | Description                                |
-| ------------------- | ------------------------------------------ |
-| timestamp           | When the action occurred                   |
-| agent_name          | Onboarding Agent / Collections Agent       |
-| triggered_by        | User / System / Webhook                    |
-| input_data_hash     | Hash of uploaded document or borrower data |
-| prompt_version      | Version of the LLM prompt                  |
-| llm_response        | Raw LLM output                             |
-| verification_result | PASS / FAIL                                |
-| state_transition    | Previous → New State                       |
-| human_handoff       | Yes / No                                   |
-| final_decision      | Approved / Retry / Escalated               |
-
-### Storage Strategy
-
-- Logs stored in **append-only storage** (JSONL / Database).
-- Each log entry is **hash-chained** with the previous log to prevent tampering.
-- This allows regulators to **replay the decision process** using:
-  - Input data
-  - Prompt used
-  - LLM output
-  - Verification result
-  - Final decision
-
-This ensures full auditability and compliance with financial regulations.
+Notifications (SMS/Email/Voice) triggered by Collections Agent ```
 
 ---
+
+## Option 2 — Mermaid Diagram (Best for GitHub)
+
+GitHub supports Mermaid diagrams. This will render as a **proper architecture diagram**.
+
+```markdown
+## Production Architecture Flow
+
+```mermaid
+flowchart TD
+    A[User Upload / Trigger / Webhook] --> B[API Gateway - FastAPI]
+    B --> C[Orchestration Layer - LangGraph]
+
+    C --> D[Onboarding Agent]
+    C --> E[Collections Agent]
+
+    D --> F[Document Store]
+    D --> G[LLM Service]
+    G --> H[Verification Engine]
+
+    E --> I[State Database]
+    E --> J[Notification Service (SMS/Email/Voice)]
+
+    H --> K[Proof Logs + Audit Trail]
+    I --> K
+    K --> L[Human Review Dashboard]
+
+````
 
 ## 3. Preventing Prompt Injection & Data Leakage
 
@@ -159,4 +155,4 @@ The LLM is only allowed to return the following JSON:
     }
   ]
 }
-````
+```
