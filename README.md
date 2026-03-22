@@ -85,9 +85,8 @@ User Upload / Trigger / Webhook
           v
    Human Review Dashboard
 
-Notifications (SMS/Email/Voice) triggered by Collections Agent 
+Notifications (SMS/Email/Voice) triggered by Collections Agent
 ```
-
 
 ## Option 2 — Mermaid Diagram (Best for GitHub)
 
@@ -95,6 +94,7 @@ GitHub supports Mermaid diagrams. This will render as a **proper architecture di
 
 ```markdown
 ## Production Architecture Flow
+```
 
 ```mermaid
 flowchart TD
@@ -115,7 +115,7 @@ flowchart TD
     I --> K
     K --> L[Human Review Dashboard]
 
-````
+```
 
 ## 3. Preventing Prompt Injection & Data Leakage
 
