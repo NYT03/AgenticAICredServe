@@ -58,7 +58,7 @@ This system consists of two AI agents:
 
 ## Production Architecture Flow
 
-```text
+````text
 User Upload / Trigger / Webhook
                 |
                 v
@@ -86,7 +86,7 @@ User Upload / Trigger / Webhook
    Human Review Dashboard
 
 Notifications (SMS/Email/Voice) triggered by Collections Agent
-
+---
 ## 2. Proof Logs Strategy (Auditability)
 
 In financial systems, every AI decision must be traceable and auditable. The system will automatically generate **Proof Logs** for every action taken by the AI agents.
@@ -159,4 +159,4 @@ The LLM is only allowed to return the following JSON:
     }
   ]
 }
-```
+````
